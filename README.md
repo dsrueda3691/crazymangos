@@ -2,17 +2,16 @@
 
 Landing page interactiva para **Crazy Mango's** — mango, maracuyá y chamoy preparados al momento en El Pando, Santa Marta.
 
-## 🌐 Visualización en vivo
+## 🌐 Visualización en vivo (GitHub Pages)
 
-**[Ver la página →](https://crazymangos.vercel.app)**
+**[Ver la página →](https://dsrueda3691.github.io/crazymangos/)**
 
-> Si el link aún no carga, despliega en un click con el botón de abajo o sigue las instrucciones de Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/dsrueda3691/crazymangos)
+> El deploy se hace automáticamente con GitHub Actions en cada push a `main`.
+> La primera vez puede tardar 1–2 minutos. Si no carga, ve a **Settings → Pages** y asegúrate de que la fuente sea **GitHub Actions**.
 
 ## Stack
 
-- **Next.js 15** (App Router)
+- **Next.js 15** (App Router + static export)
 - **React 19** + **TypeScript**
 - **Three.js** + **@react-three/fiber** + **@react-three/drei** (vaso 3D interactivo)
 - **GSAP** + ScrollTrigger (scroll-driven animations y cambio de fondo)
@@ -45,11 +44,15 @@ NEXT_PUBLIC_WHATSAPP=57XXXXXXXXXX
 
 (Reemplaza por el número real del local, formato internacional sin `+` ni espacios.)
 
-## Despliegue
+## Despliegue (GitHub Pages)
 
-1. Conecta el repo a [Vercel](https://vercel.com).
-2. Añade la variable `NEXT_PUBLIC_WHATSAPP` si quieres.
-3. Deploy automático en cada push a `main`.
+El workflow `.github/workflows/deploy.yml` genera el sitio estático (`out/`) y lo publica en GitHub Pages.
+
+1. Ve a **Settings → Pages** del repositorio.
+2. En **Source** elige **GitHub Actions**.
+3. Cada push a `main` vuelve a desplegar.
+
+URL final: https://dsrueda3691.github.io/crazymangos/
 
 ---
 
