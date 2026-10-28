@@ -29,7 +29,10 @@ function Cup() {
   const liquid = useMemo(() => profile([[0, .12], [.58, .12], [.64, .16], [.98, 2.15], [0, 2.15]]), []);
   const chunks = useMemo(() => Array.from({ length: 16 }, (_, i) => {
     const a = i * 2.4, r = 0.15 + (i % 5) * 0.14;
-    return { p: [Math.cos(a) * r, 2.2 + Math.floor(i / 6) * 0.28 + (i % 3) * 0.05] as const, rot: [i, i * 2, i * 3] as const };
+    return {
+      p: [Math.cos(a) * r, 2.2 + Math.floor(i / 6) * 0.28 + (i % 3) * 0.05, Math.sin(a) * r] as [number, number, number],
+      rot: [i, i * 2, i * 3] as [number, number, number],
+    };
   }), []);
 
   useFrame((s, dt) => {
@@ -49,7 +52,7 @@ function Cup() {
       <mesh><latheGeometry args={[liquid, 64]} />
         <meshPhysicalMaterial color="#B3121F" roughness={0.25} clearcoat={1} clearcoatRoughness={0.1} /></mesh>
       {chunks.map((c, i) => (
-        <RoundedBox key={i} args={[.42, .42, .42]} radius={.08} position={[...c.p]} rotation={[...c.rot]}>
+        <RoundedBox key={i} args={[.42, .42, .42]} radius={.08} position={c.p} rotation={c.rot}>
           <meshPhysicalMaterial color={i % 4 ? "#FFB800" : "#FF8A00"} roughness={.35} clearcoat={.6} />
         </RoundedBox>))}
       {[0, 1, 2, 3].map((i) => (
