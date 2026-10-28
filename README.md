@@ -4,10 +4,9 @@ Landing page interactiva para **Crazy Mango's** — mango, maracuyá y chamoy pr
 
 ## 🌐 Visualización en vivo (GitHub Pages)
 
-**[Ver la página →](https://dsrueda3691.github.io/crazymangos/)**
+**→ [https://dsrueda3691.github.io/crazymangos/](https://dsrueda3691.github.io/crazymangos/)**
 
-> El deploy se hace automáticamente con GitHub Actions en cada push a `main`.
-> La primera vez puede tardar 1–2 minutos. Si no carga, ve a **Settings → Pages** y asegúrate de que la fuente sea **GitHub Actions**.
+El sitio ya está publicado y se actualiza automáticamente con cada push a `main`.
 
 ## Stack
 
@@ -44,15 +43,11 @@ NEXT_PUBLIC_WHATSAPP=57XXXXXXXXXX
 
 (Reemplaza por el número real del local, formato internacional sin `+` ni espacios.)
 
-## Despliegue (GitHub Pages)
+## Despliegue
 
-El workflow `.github/workflows/deploy.yml` genera el sitio estático (`out/`) y lo publica en GitHub Pages.
+GitHub Actions (`.github/workflows/nextjs.yml`) construye el export estático y lo publica en GitHub Pages en cada push a `main`.
 
-1. Ve a **Settings → Pages** del repositorio.
-2. En **Source** elige **GitHub Actions**.
-3. Cada push a `main` vuelve a desplegar.
-
-URL final: https://dsrueda3691.github.io/crazymangos/
+URL: https://dsrueda3691.github.io/crazymangos/
 
 ---
 
